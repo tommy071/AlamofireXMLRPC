@@ -58,7 +58,7 @@ extension Bool: XMLRPCRawValueRepresentable {
 }
 
 // MARK: Integer
-extension XMLRPCRawValueRepresentable where Self: Integer {
+extension XMLRPCRawValueRepresentable where Self: BinaryInteger {
     public static var xmlRpcKind: XMLRPCValueKind { return .Integer }
 }
 
@@ -81,12 +81,35 @@ extension UInt8: StringRadixParsable { }
 
 extension Int: XMLRPCRawValueRepresentable {
     public var xmlRpcRawValue: String { return String(Int32(self))} // Truncate Int
+    public init?(xmlRpcRawValue: String) {
+        return nil
+    }
 }
-extension Int32: XMLRPCRawValueRepresentable { }
-extension Int16: XMLRPCRawValueRepresentable { }
-extension Int8: XMLRPCRawValueRepresentable { }
-extension UInt16: XMLRPCRawValueRepresentable { }
-extension UInt8: XMLRPCRawValueRepresentable { }
+extension Int32: XMLRPCRawValueRepresentable {
+    public init?(xmlRpcRawValue: String) {
+        return nil
+    }
+}
+extension Int16: XMLRPCRawValueRepresentable {
+    public init?(xmlRpcRawValue: String) {
+        return nil
+    }
+}
+extension Int8: XMLRPCRawValueRepresentable {
+    public init?(xmlRpcRawValue: String) {
+        return nil
+    }
+}
+extension UInt16: XMLRPCRawValueRepresentable {
+    public init?(xmlRpcRawValue: String) {
+        return nil
+    }
+}
+extension UInt8: XMLRPCRawValueRepresentable {
+    public init?(xmlRpcRawValue: String) {
+        return nil
+    }
+}
 
 // MARK: Floating Point
 public extension XMLRPCRawValueRepresentable where Self: LosslessStringConvertible {
